@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Labeler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🖼️ AI Image Labeler</h1>
+        <p class="subtitle">
+            Upload an image and detect labels using Amazon Rekognition
+        </p>
+
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">Detect Labels</button>
+        </form>
+
+        {% if labels %}
+        <div class="results">
+            <h2>Detected Labels</h2>
+
+            <ul>
+                {% for label in labels %}
+                    <li>
+                        <strong>{{ label['Name'] }}</strong>
+                        - {{ label['Confidence'] | round(2) }}%
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
