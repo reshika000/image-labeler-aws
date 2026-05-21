@@ -2,6 +2,10 @@
 
 This project uses **AWS Rekognition** to detect and label objects in images stored in an S3 bucket. It fetches images from AWS S3, sends them to Rekognition, and prints detected labels with confidence scores.
 
+<img width="1071" height="741" alt="520591871-a099a93b-732f-4a76-9da2-556fa5caf62b" src="https://github.com/user-attachments/assets/a210300e-9aea-4f78-aeb1-1037af597569" />
+
+
+
 ---
 
 ## 🚀 Features
