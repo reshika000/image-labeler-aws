@@ -8,32 +8,28 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>🖼️ AI Image Labeler</h1>
-        <p class="subtitle">
-            Upload an image and detect labels using Amazon Rekognition
-        </p>
+<div class="container">
 
-        <form action="/" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" required>
-            <button type="submit">Detect Labels</button>
-        </form>
+    <h1>🖼️ AI Image Labeler</h1>
+    <p>Upload an image and detect labels using Amazon Rekognition</p>
 
-        {% if labels %}
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload & Detect</button>
+    </form>
+
+    {% if labels %}
         <div class="results">
-            <h2>Detected Labels</h2>
-
-            <ul>
-                {% for label in labels %}
-                    <li>
-                        <strong>{{ label['Name'] }}</strong>
-                        - {{ label['Confidence'] | round(2) }}%
-                    </li>
-                {% endfor %}
-            </ul>
+            <h3>Results:</h3>
+            {% for label in labels %}
+                <p>
+                    {{ label['Name'] }} — {{ label['Confidence'] | round(2) }}%
+                </p>
+            {% endfor %}
         </div>
-        {% endif %}
-    </div>
+    {% endif %}
+
+</div>
 
 </body>
 </html>
